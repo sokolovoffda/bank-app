@@ -174,10 +174,30 @@ E2e — один сценарий login → home.
 
 ---
 
+## 12. Стили: токены референса + BEM, без CSS Modules
+
+**Контекст:** в референсе `*.module.scss` и hashed-классы через `import styles from '...'`.
+
+**Проблема:** наши шаблоны пока обычные HTML-строки с `class="..."`. Modules потребуют webpack `modules: true` и подстановку классов в RenderService. Смешивать BEM и Modules нельзя ([plan/02-render.md](./plan/02-render.md)).
+
+**Решение:**
+
+- визуал (цвета, шрифт, reset, mixins, keyframes) — как в `reference-bank-app`
+- именование классов — **BEM**
+- глобальные файлы в `client/src/styles/`
+- стили компонента — рядом с JS (`layout.scss`), не `*.module.scss`
+
+Правила: [styles.md](./styles.md).
+
+**Статус:** принято (2026-08-18).
+
+---
+
 ## Журнал изменений решений
 
 | Дата | Решение | Комментарий |
 |------|---------|-------------|
 | 2026-08-14 | PostgreSQL + Express | Вместо json-server; см. database.md, backend.md |
+| 2026-08-18 | Стили: BEM + токены референса | Без CSS Modules; см. styles.md |
 
 При новых решениях — добавлять строки в таблицу.

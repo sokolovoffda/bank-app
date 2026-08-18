@@ -16,7 +16,7 @@
 - [ ] Явный `static tag = 'button'` (не `constructor.name`)
 - [ ] `RenderService`: HTML-шаблон → заменить `<component-…>` на `new Component().render()`
 - [ ] `innerHTML` только для **своих** шаблонов; пользовательский текст позже — `textContent`
-- [ ] Стили: SCSS modules **или** BEM (выбрать одно и не смешивать)
+- [x] Стили: **BEM** + токены референса ([styles.md](../styles.md); CSS Modules не используем)
 - [ ] UI-примитивы: `Button`, `Field`
 - [ ] Один экран (например Auth-заглушка) собирается из шаблона + примитивов
 

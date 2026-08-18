@@ -26,6 +26,7 @@
 | [plan/](./plan/) | Чеклисты этапа: отдельно **Client** и **Server** |
 | [architecture.md](./architecture.md) | Слои, поток данных, структура папок |
 | [decisions.md](./decisions.md) | Архитектурные решения |
+| [styles.md](./styles.md) | Токены, BEM, как писать SCSS |
 | [database.md](./database.md) | **PostgreSQL** — таблицы, DDL, seed |
 | [backend.md](./backend.md) | **Express** — план сервера (код позже) |
 | [api.md](./api.md) | HTTP-контракт frontend ↔ backend |
