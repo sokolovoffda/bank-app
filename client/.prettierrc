@@ -4,5 +4,25 @@
 	"singleQuote": true,
 	"tabWidth": 2,
 	"semi": false,
-	"trailingComma": "none"
+	"trailingComma": "none",
+	"plugins": ["@trivago/prettier-plugin-sort-imports"],
+	"importOrder": [
+		"<THIRD_PARTY_MODULES>",
+		"^@/core/(.*)$",
+		"^@/components/(.*)$",
+		"^@/layout/(.*)$",
+		"^@/screens/(.*)$",
+		"^@/router/(.*)$",
+		"^@/styles/(.*)$",
+		"^@/config/(.*)$",
+		"^@/utils/(.*)$",
+		"^@/services/(.*)$",
+		"^@/store/(.*)$",
+		"^@/api/(.*)$",
+		"^.+\\.(template\\.html|scss)$",
+		"^../(.*)",
+		"^./(.*)"
+	],
+	"importOrderSeparation": true,
+	"importOrderSortSpecifiers": true
 }

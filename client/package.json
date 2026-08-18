@@ -13,6 +13,7 @@
 	"devDependencies": {
 		"@babel/core": "^8.0.1",
 		"@babel/preset-env": "^8.0.2",
+		"@trivago/prettier-plugin-sort-imports": "^6.0.2",
 		"babel-loader": "^10.1.1",
 		"css-loader": "^7.1.4",
 		"dotenv-webpack": "^9.0.0",
