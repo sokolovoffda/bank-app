@@ -1,6 +1,6 @@
 class Layout {
-  render() {
-    return `
+	render() {
+		return `
       <div class="layout">
         <header class="layout__header">
           <nav class="layout__nav">
@@ -12,7 +12,7 @@ class Layout {
         <main id="content" class="layout__content"></main>
       </div>
     `
-  }
+	}
 }
 
 module.exports = Layout
