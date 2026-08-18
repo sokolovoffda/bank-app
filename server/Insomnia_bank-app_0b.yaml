@@ -1,0 +1,362 @@
+type: collection.insomnia.rest/5.0
+schema_version: "5.1"
+name: bank-app
+meta:
+  id: wrk_bankapp0b001
+  created: 1784707000000
+  modified: 1784707000000
+  description: Bank App local API collection
+collection:
+  - url: "{{ _.baseUrl }}/api/health"
+    name: health
+    meta:
+      id: req_bankapp_health
+      created: 1784707000001
+      modified: 1784707000001
+      isPrivate: false
+      description: Health check for local Express API
+      sortKey: -1784707000001
+    method: GET
+    headers:
+      - name: User-Agent
+        value: insomnia/12.6.0
+        description: ""
+        disabled: false
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - name: auth
+    meta:
+      id: fld_bankapp_auth
+      created: 1784707000002
+      modified: 1784707000002
+      sortKey: -1784707000002
+      description: Auth endpoints
+    children:
+      - url: "{{ _.baseUrl }}/api/auth/register"
+        name: register
+        meta:
+          id: req_bankapp_register
+          created: 1784707000003
+          modified: 1784707000003
+          isPrivate: false
+          description: Register new user
+          sortKey: -1784707000003
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "email": "new@example.com",
+              "password": "secret123",
+              "name": "New User"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.6.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.baseUrl }}/api/auth/login"
+        name: login
+        meta:
+          id: req_bankapp_login
+          created: 1784707000004
+          modified: 1784707000004
+          isPrivate: false
+          description: Login existing user
+          sortKey: -1784707000004
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "email": "user@example.com",
+              "password": "secret123"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.6.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: cards
+    meta:
+      id: fld_bankapp_cards
+      created: 1784707000007
+      modified: 1784707000007
+      sortKey: -1784707000007
+      description: Protected card endpoints
+    children:
+      - url: "{{ _.baseUrl }}/api/cards/by-user"
+        name: by-user
+        meta:
+          id: req_bankapp_cards_by_user
+          created: 1784707000008
+          modified: 1784707000008
+          isPrivate: false
+          description: Get current user card
+          sortKey: -1784707000008
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.6.0
+            description: ""
+            disabled: false
+        authentication:
+          type: bearer
+          token: "{{ _.token }}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.baseUrl }}/api/cards/balance/top-up"
+        name: top-up
+        meta:
+          id: req_bankapp_cards_top_up
+          created: 1784707000009
+          modified: 1784707000009
+          isPrivate: false
+          description: Increase current user balance
+          sortKey: -1784707000009
+        method: PATCH
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "amount": 1000
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.6.0
+            description: ""
+            disabled: false
+        authentication:
+          type: bearer
+          token: "{{ _.token }}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.baseUrl }}/api/cards/balance/withdrawal"
+        name: withdrawal
+        meta:
+          id: req_bankapp_cards_withdrawal
+          created: 1784707000010
+          modified: 1784707000010
+          isPrivate: false
+          description: Decrease current user balance
+          sortKey: -1784707000010
+        method: PATCH
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "amount": 500
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.6.0
+            description: ""
+            disabled: false
+        authentication:
+          type: bearer
+          token: "{{ _.token }}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.baseUrl }}/api/cards/transfer-money"
+        name: transfer-money
+        meta:
+          id: req_bankapp_cards_transfer
+          created: 1784707000011
+          modified: 1784707000011
+          isPrivate: false
+          description: Transfer money between cards
+          sortKey: -1784707000011
+        method: PATCH
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "amount": 1000,
+              "fromCardNumber": "4111111111111111",
+              "toCardNumber": "5555555555554444"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.6.0
+            description: ""
+            disabled: false
+        authentication:
+          type: bearer
+          token: "{{ _.token }}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: transactions
+    meta:
+      id: fld_bankapp_transactions
+      created: 1784707000012
+      modified: 1784707000012
+      sortKey: -1784707000012
+      description: Protected transactions endpoints
+    children:
+      - url: "{{ _.baseUrl }}/api/transactions?orderBy=desc"
+        name: list
+        meta:
+          id: req_bankapp_transactions_list
+          created: 1784707000013
+          modified: 1784707000013
+          isPrivate: false
+          description: Get current user transactions
+          sortKey: -1784707000013
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.6.0
+            description: ""
+            disabled: false
+        authentication:
+          type: bearer
+          token: "{{ _.token }}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: statistics
+    meta:
+      id: fld_bankapp_statistics
+      created: 1784707000014
+      modified: 1784707000014
+      sortKey: -1784707000014
+      description: Protected statistics endpoint
+    children:
+      - url: "{{ _.baseUrl }}/api/statistics"
+        name: list
+        meta:
+          id: req_bankapp_statistics_list
+          created: 1784707000015
+          modified: 1784707000015
+          isPrivate: false
+          description: Get income and expense statistics
+          sortKey: -1784707000015
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.6.0
+            description: ""
+            disabled: false
+        authentication:
+          type: bearer
+          token: "{{ _.token }}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: users
+    meta:
+      id: fld_bankapp_users
+      created: 1784707000016
+      modified: 1784707000016
+      sortKey: -1784707000016
+      description: Protected users search endpoint
+    children:
+      - url: "{{ _.baseUrl }}/api/users?searchTerm="
+        name: search
+        meta:
+          id: req_bankapp_users_search
+          created: 1784707000017
+          modified: 1784707000017
+          isPrivate: false
+          description: Search contacts by name
+          sortKey: -1784707000017
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.6.0
+            description: ""
+            disabled: false
+        authentication:
+          type: bearer
+          token: "{{ _.token }}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_bankapp0b001
+    created: 1784707000005
+    modified: 1784707000005
+  cookies: []
+environments:
+  name: Base Environment
+  meta:
+    id: env_bankapp0b001
+    created: 1784707000006
+    modified: 1784707000006
+    isPrivate: false
+  data:
+    baseUrl: http://localhost:3001
+    token: ""
