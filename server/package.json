@@ -2,6 +2,10 @@
   "name": "bank-app-server",
   "version": "0.0.1",
   "private": true,
+  "scripts": {
+    "dev": "nodemon src/index.js",
+    "start": "node src/index.js"
+  },
   "dependencies": {
     "bcrypt": "^6.0.0",
     "cors": "^2.8.6",
