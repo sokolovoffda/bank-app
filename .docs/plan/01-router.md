@@ -12,12 +12,12 @@
 
 ## Client
 
-- [ ] `routes.data.js`: `/`, `/auth`, `/about-us`, fallback 404
-- [ ] `Router`: `pushState` + слушатель `popstate`
-- [ ] Layout монтируется **один раз**; внутри контейнер `#content`
-- [ ] Перехват кликов **только** по `a[data-link]` (не все `<a>`)
-- [ ] Заглушки экранов: текст «Home», «Auth», «About», «Not found»
-- [ ] Меню в layout с `data-link` на существующие роуты
+- [x] `routes.data.js`: `/`, `/auth`, `/about-us`, fallback 404
+- [x] `Router`: `pushState` + слушатель `popstate`
+- [x] Layout монтируется **один раз**; внутри контейнер `#content`
+- [x] Перехват кликов **только** по `a[data-link]` (не все `<a>`)
+- [x] Заглушки экранов: текст «Home», «Auth», «About», «Not found»
+- [x] Меню в layout с `data-link` на существующие роуты
 
 **Не делать:** RenderService, Store, API, настоящие формы.
 
@@ -27,6 +27,6 @@
 
 ## Server
 
-- [ ] Не трогаем (этап 0b можно вести параллельно, но роутер от API не зависит)
+- [x] Не трогаем (этап 0b можно вести параллельно, но роутер от API не зависит)
 
 Если 0b ещё не начат — так и оставляем.
