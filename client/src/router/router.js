@@ -1,6 +1,6 @@
-const Layout = require('../layout/layout')
-const routes = require('./routes.data')
-const renderService = require('../core/services/render.service')
+const Layout = require('@/layout/layout')
+const routes = require('@/router/routes.data')
+const renderService = require('@/core/services/render.service')
 class Router {
 	constructor(rootElement) {
 		this.rootElement = rootElement
@@ -10,9 +10,10 @@ class Router {
 
 	init() {
 		this.rootElement.innerHTML = this.layout.render()
-		const el = renderService.htmlToElement('<section><h1>Home</h1></section>')
-		console.log(el) // <section>...</section>
-		console.log(el.tagName) // SECTION
+		const el = renderService.htmlToElement(
+			'<section><h1>Home</h1> <div>123</div> <component-button></component-button> </section>'
+		)
+
 		document.addEventListener('click', e => {
 			const link = e.target.closest('a[data-link]')
 			const path = link ? link.getAttribute('href') : null

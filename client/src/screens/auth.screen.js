@@ -1,4 +1,4 @@
-const BaseScreen = require('../core/components/base-screen.component')
+const BaseScreen = require('@/core/components/base-screen.component')
 
 class AuthScreen extends BaseScreen {
 	constructor() {
