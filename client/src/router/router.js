@@ -18,15 +18,17 @@ class Router {
 
 			const path = link.getAttribute('href')
 
-			if (!path) {
-				console.log('Invalid href')
+			if (path) {
+				history.pushState({}, '', path)
+				this.#renderService(path)
 			}
-			history.pushState({}, '', path)
-			this.#renderService(path)
 		})
+
 		document.addEventListener('popstate', () => {
 			this.#renderService(window.location.pathname)
 		})
+
+		this.#renderService(window.location.pathname)
 	}
 
 	#renderService(path) {
