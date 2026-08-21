@@ -40,7 +40,7 @@ Backend можно вести **параллельно** с Router / Store. Auth
 | 0b — Backend | [00b-backend.md](./plan/00b-backend.md) | не трогаем | Express + JWT + API | ⬜ |
 | 1 — Router | [01-router.md](./plan/01-router.md) | роутер, layout, заглушки экранов | не трогаем | ⬜ |
 | 2 — RenderService | [02-render.md](./plan/02-render.md) | компоненты, шаблоны, Button/Field | не трогаем | ⬜ |
-| 3 — DOM-слой | [03-dom.md](./plan/03-dom.md) | мини-`$R` | не трогаем | ⬜ |
+| 3 — DOM-слой | [03-dom.md](./plan/03-dom.md) | мини-`$R` | не трогаем | ✅ |
 | 4 — Store | [04-store.md](./plan/04-store.md) | store + localStorage | не трогаем | ⬜ |
 | 5 — HTTP Client | [05-http.md](./plan/05-http.md) | httpClient + services | API уже готов | ⬜ |
 | 6 — Auth | [06-auth.md](./plan/06-auth.md) | login/register, toast, header | правки API по ревью | ⬜ |

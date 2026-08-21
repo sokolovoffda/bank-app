@@ -1,6 +1,7 @@
 const BaseScreen = require('@/core/components/base-screen.component')
 const renderService = require('@/core/services/render.service')
 const Button = require('@/components/ui/button/button.component')
+const template = require('./home.template.html')
 
 class HomeScreen extends BaseScreen {
 	constructor() {
@@ -8,16 +9,13 @@ class HomeScreen extends BaseScreen {
 	}
 
 	render() {
-		return renderService.htmlToElement(
-			`<section><h1>Home</h1><p>Home screen stub.</p> <component-button></component-button> </section>`,
-			[
-				new Button({
-					children: 'test',
-					variant: 'green',
-					onClick: () => console.log(123)
-				})
-			]
-		)
+		return renderService.htmlToElement(template, [
+			new Button({
+				children: 'test',
+				variant: 'green',
+				onClick: () => console.log(123)
+			})
+		])
 	}
 
 	destroy() {}

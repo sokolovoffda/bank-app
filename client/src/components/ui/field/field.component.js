@@ -1,5 +1,6 @@
 const ChildComponent = require('@/core/components/child.component')
 const renderService = require('@/core/services/render.service')
+const { $R } = require('@/core/rquery/rquery.lib')
 const template = require('./field.template.html')
 
 class Field extends ChildComponent {
@@ -19,14 +20,15 @@ class Field extends ChildComponent {
 	render() {
 		this.element = renderService.htmlToElement(template)
 
-		const input = this.element.querySelector('input')
-		input.placeholder = this.placeholder || ''
-		input.type = this.type
-		input.value = this.value
-		input.name = this.name
+		$R(this.element).find('input').input({
+			placeholder: this.placeholder || '',
+			type: this.type,
+			value: this.value,
+			name: this.name
+		})
 
 		if (this.variant) {
-			this.element.classList.add(`field--${this.variant}`)
+			$R(this.element).addClass(`field--${this.variant}`)
 		}
 
 		return this.element

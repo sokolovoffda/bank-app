@@ -1,5 +1,6 @@
 const Layout = require('@/layout/layout')
 const routes = require('@/router/routes.data')
+const { $R } = require('@/core/rquery/rquery.lib')
 
 class Router {
 	constructor(rootElement) {
@@ -11,14 +12,14 @@ class Router {
 	init() {
 		this.rootElement.innerHTML = this.layout.render()
 
-		document.addEventListener('click', e => {
+		$R(this.rootElement).on('click', e => {
 			const link = e.target.closest('a[data-link]')
 			const path = link ? link.getAttribute('href') : null
-			if (path) {
-				e.preventDefault()
-				history.pushState({}, '', path)
-				this.#renderRoute(path)
-			} else return
+			if (!path) return
+
+			e.preventDefault()
+			history.pushState({}, '', path)
+			this.#renderRoute(path)
 		})
 
 		window.addEventListener('popstate', () => {
@@ -29,16 +30,14 @@ class Router {
 	}
 
 	#renderRoute(path) {
-		const contentWrapper = document.getElementById('content')
 		const route = routes.find(el => el.path === path)
 		const notFoundPage = routes.find(el => el.path === '*')
+		const Screen = route ? route.Screen : notFoundPage.Screen
 
-		if (!route) {
-			contentWrapper.replaceChildren(new notFoundPage.Screen().render())
-			return
-		}
+		this.currentScreen?.destroy()
+		this.currentScreen = new Screen()
 
-		contentWrapper.replaceChildren(new route.Screen().render())
+		$R('#content').clear().append(this.currentScreen.render())
 	}
 }
 
