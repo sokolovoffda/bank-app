@@ -1,0 +1,25 @@
+@use '../styles/variables' as *;
+@use '../styles/mixins' as *;
+
+.layout {
+	padding: 20px;
+	max-width: 1350px;
+	margin: 0 auto;
+	position: relative;
+	min-height: 100vh;
+}
+
+.layout__header {
+	@include flex-horizontal-center;
+	justify-content: space-between;
+	margin-bottom: $gap;
+}
+
+.layout__nav {
+	@include flex-horizontal-center;
+	gap: 20px;
+}
+
+.layout__content {
+	min-height: 50vh;
+}

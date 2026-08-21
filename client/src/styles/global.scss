@@ -1,0 +1,38 @@
+@use './variables' as *;
+@use './mixins' as *;
+@use './reset';
+@use './keyframes';
+
+input,
+button,
+body {
+	font-family: $font;
+}
+
+body {
+	background-color: $bg-page;
+	color: $white;
+	font-size: 17px;
+	line-height: 1.6;
+}
+
+input {
+	font-size: 16px;
+	background-color: transparent;
+	color: $white;
+
+	&::placeholder {
+		color: $text-gray;
+	}
+}
+
+a {
+	color: $white;
+	text-decoration: none;
+	@include transition(border-color);
+	border-bottom: 1px solid transparent;
+
+	&:hover {
+		border-color: $primary;
+	}
+}
