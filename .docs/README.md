@@ -32,7 +32,7 @@
 | [schema.sql](./schema.sql) | DDL — создание таблиц |
 | [seed.sql](./seed.sql) | Тестовые данные |
 | [backups/](./backups/) | Инструкция pg_dump + место для дампов |
-| [practice-from-678affb.md](./practice-from-678affb.md) | Пошаговое ТЗ: повторить путь `678affb` → Render/Button (ветка `practice/from-678affb-replay`) |
+| [practice-from-678affb.md](./practice-from-678affb.md) | Учебная ветка `practice/from-678affb-replay`: пошаговое ТЗ с подсказками (`678affb` → Router → Render → Button/Field) |
 
 ---
 
