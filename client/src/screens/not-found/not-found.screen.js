@@ -1,11 +1,14 @@
 const BaseScreen = require('@/core/components/base-screen.component')
+const RenderService = require('@/core/services/render.service')
+const template = require('./not-found.template.html')
 
 class NotFoundScreen extends BaseScreen {
 	constructor() {
 		super({ title: 'Not Found' })
 	}
+
 	render() {
-		return '<section><h1>Not found</h1><p>Route does not exist.</p></section>'
+		return new RenderService().htmlToElement(template)
 	}
 
 	destroy() {}

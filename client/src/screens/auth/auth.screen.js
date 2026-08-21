@@ -1,11 +1,14 @@
 const BaseScreen = require('@/core/components/base-screen.component')
+const RenderService = require('@/core/services/render.service')
+const template = require('./auth.template.html')
 
 class AuthScreen extends BaseScreen {
 	constructor() {
 		super({ title: 'Auth' })
 	}
+
 	render() {
-		return '<section><h1>Auth</h1><p>Auth screen stub.</p></section>'
+		return new RenderService().htmlToElement(template)
 	}
 
 	destroy() {}

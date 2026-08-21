@@ -1,3 +1,4 @@
+const Button = require('@/components/ui/button/button.component')
 const RenderService = require('@/core/services/render.service')
 const Layout = require('@/layout/layout')
 const routes = require('@/router/routes.data')
@@ -10,12 +11,6 @@ class Router {
 
 	init() {
 		this.rootElement.innerHTML = this.layout.render()
-		new RenderService().htmlToElement(
-			`<section>
-        <div>Test</div>
-        <component-button></component-button>
-      </section>`
-		)
 
 		this.rootElement.addEventListener('click', e => {
 			const link = e.target.closest('a[data-link]')
@@ -42,7 +37,7 @@ class Router {
 
 		this.currentScreen?.destroy()
 		this.currentScreen = new route.Screen()
-		content.innerHTML = this.currentScreen.render()
+		content.replaceChildren(this.currentScreen.render())
 	}
 }
 
