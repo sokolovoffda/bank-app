@@ -22,7 +22,6 @@ class Field extends ChildComponent {
 		input.placeholder = this.placeholder
 		input.value = this.value
 
-		console.log(this.element)
 		return this.element
 	}
 }

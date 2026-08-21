@@ -3,18 +3,20 @@ const template = require('./button.template.html')
 const RenderService = require('@/core/services/render.service')
 
 class Button extends ChildComponent {
-	constructor({ children, onClick, variant } = {}) {
+	constructor({ children, onClick, variant, type = 'button' } = {}) {
 		super()
 		if (!children) throw new Error('Children is empty!')
 		this.children = children
 		this.onClick = onClick
 		this.variant = variant
+		this.type = type
 	}
 
 	static tag = 'button'
 	render() {
 		this.element = RenderService.htmlToElement(template)
 		this.element.textContent = this.children
+		this.element.type = this.type
 		if (this.onClick) {
 			this.element.addEventListener('click', this.onClick)
 		}
