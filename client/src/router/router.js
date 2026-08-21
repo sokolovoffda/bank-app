@@ -1,3 +1,5 @@
+const Field = require('@/components/ui/field/field.component')
+const renderService = require('@/core/services/render.service')
 const Layout = require('@/layout/layout')
 const routes = require('@/router/routes.data')
 class Router {
@@ -9,7 +11,6 @@ class Router {
 
 	init() {
 		this.rootElement.innerHTML = this.layout.render()
-
 		this.rootElement.addEventListener('click', e => {
 			const link = e.target.closest('a[data-link]')
 			const path = link ? link.getAttribute('href') : null
