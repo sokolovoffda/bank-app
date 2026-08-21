@@ -1,4 +1,4 @@
-const Layout = require('../layout/layout')
+const Layout = require('@/layout/layout')
 const routes = require('./routes.data')
 
 class Router {
@@ -10,6 +10,27 @@ class Router {
 
 	init() {
 		this.rootElement.innerHTML = this.layout.render()
+
+		this.rootElement.addEventListener('click', e => {
+			e.preventDefault()
+			const link = e.target.closest('a[data-link]')
+			if (!link) return
+
+			const path = link.getAttribute('href')
+
+			if (!path) {
+				console.log('Invalid href')
+			}
+			history.pushState({}, '', path)
+			this.#renderService(path)
+		})
+		document.addEventListener('popstate', () => {
+			this.#renderService(window.location.pathname)
+		})
+	}
+
+	#renderService(path) {
+		console.log(path)
 	}
 }
 
