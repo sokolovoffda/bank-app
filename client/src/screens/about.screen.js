@@ -3,7 +3,9 @@ class AboutScreen {
 		return '<section><h1>About</h1><p>About screen stub.</p></section>'
 	}
 
-	destroy() {}
+	destroy() {
+		console.log('About destroy')
+	}
 }
 
 module.exports = AboutScreen

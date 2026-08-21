@@ -1,7 +1,7 @@
-const HomeScreen = require('../screens/home.screen')
-const AuthScreen = require('../screens/auth.screen')
-const AboutScreen = require('../screens/about.screen')
-const NotFoundScreen = require('../screens/not-found.screen')
+const HomeScreen = require('@/screens/home.screen')
+const AuthScreen = require('@/screens/auth.screen')
+const AboutScreen = require('@/screens/about.screen')
+const NotFoundScreen = require('@/screens/not-found.screen')
 
 module.exports = [
 	{

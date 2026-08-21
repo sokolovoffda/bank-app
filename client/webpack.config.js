@@ -9,6 +9,7 @@ module.exports = {
 	entry: path.resolve(__dirname, 'src', 'index.js'),
 	output: {
 		path: path.resolve(__dirname, 'dist'),
+		publicPath: '/',
 		clean: true
 	},
 	resolve: {
@@ -34,7 +35,12 @@ module.exports = {
 			},
 			{
 				test: /\.html$/,
-				loader: 'html-loader'
+				loader: 'html-loader',
+				options: { esModule: false }
+			},
+			{
+				test: /\.(png|svg|jpg|jpeg|gif|ico)$/i,
+				type: 'asset/resource'
 			}
 		]
 	},

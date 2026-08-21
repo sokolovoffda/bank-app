@@ -1,6 +1,5 @@
 const Layout = require('@/layout/layout')
-const routes = require('./routes.data')
-
+const routes = require('@/router/routes.data')
 class Router {
 	constructor(rootElement) {
 		this.rootElement = rootElement
@@ -12,27 +11,31 @@ class Router {
 		this.rootElement.innerHTML = this.layout.render()
 
 		this.rootElement.addEventListener('click', e => {
-			e.preventDefault()
 			const link = e.target.closest('a[data-link]')
-			if (!link) return
-
-			const path = link.getAttribute('href')
+			const path = link ? link.getAttribute('href') : null
 
 			if (path) {
+				e.preventDefault()
 				history.pushState({}, '', path)
-				this.#renderService(path)
+				this.#renderRoute(path)
 			}
 		})
 
 		document.addEventListener('popstate', () => {
-			this.#renderService(window.location.pathname)
+			this.#renderRoute(window.location.pathname)
 		})
 
-		this.#renderService(window.location.pathname)
+		this.#renderRoute(window.location.pathname)
 	}
 
-	#renderService(path) {
-		console.log(path)
+	#renderRoute(path) {
+		const content = document.querySelector('#content')
+		let route = routes.find(rout => rout.path === path)
+		if (!route) route = routes.find(rout => rout.path === '*')
+
+		this.currentScreen?.destroy()
+		this.currentScreen = new route.Screen()
+		content.innerHTML = this.currentScreen.render()
 	}
 }
 
