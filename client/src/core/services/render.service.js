@@ -1,3 +1,5 @@
+const ChildComponent = require('../components/child.component')
+
 class RenderService {
 	htmlToElement(html, components = []) {
 		const template = document.createElement('template')
@@ -14,14 +16,22 @@ class RenderService {
 			if (!tagName.startsWith('component-')) continue
 
 			const tag = tagName.replace(/^component-/, '')
-			const Component = components.find(component => component.tag === tag)
+
+			const Component = components.find(
+				component => component.tag ?? component.constructor.tag
+			)
 
 			if (!Component) {
 				console.error(`Component "${tag}" not found`)
 				continue
 			}
 
-			element.replaceWith(new Component().render())
+			const node =
+				Component instanceof ChildComponent
+					? Component.render()
+					: new Component().render()
+
+			element.replaceWith(node)
 		}
 	}
 }

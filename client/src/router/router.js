@@ -1,6 +1,7 @@
 const Layout = require('@/layout/layout')
 const routes = require('@/router/routes.data')
 const renderService = require('@/core/services/render.service')
+const Button = require('@/components/ui/button/button.component')
 class Router {
 	constructor(rootElement) {
 		this.rootElement = rootElement
@@ -10,9 +11,10 @@ class Router {
 
 	init() {
 		this.rootElement.innerHTML = this.layout.render()
-		const el = renderService.htmlToElement(
-			'<section><h1>Home</h1> <div>123</div> <component-button></component-button> </section>'
-		)
+		const btn = new Button({
+			children: 'test',
+			onClick: () => console.log(test)
+		}).render()
 
 		document.addEventListener('click', e => {
 			const link = e.target.closest('a[data-link]')
@@ -40,7 +42,7 @@ class Router {
 			return
 		}
 
-		contentWrapper.innerHTML = new route.Screen().render()
+		contentWrapper.replaceChildren(new route.Screen().render())
 	}
 }
 

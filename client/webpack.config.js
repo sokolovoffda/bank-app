@@ -35,7 +35,8 @@ module.exports = {
 			},
 			{
 				test: /\.html$/,
-				loader: 'html-loader'
+				loader: 'html-loader',
+				options: { esModule: false }
 			},
 			{
 				test: /\.(png|svg|jpg|jpeg|gif|ico)$/i,
