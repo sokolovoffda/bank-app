@@ -1,7 +1,7 @@
 # Этап 2 — RenderService + компоненты
 
 **Оценка:** 2–3 дня  
-**Статус:** ⬜ не начат  
+**Статус:** 🟡 почти готов  
 **Цель:** экран собирается из HTML-шаблона и вложенных компонентов, без ручного `createElement` на каждый кусок UI.
 
 **Готово, если:** экран Auth или Home-заглушка рендерит `Button` / `Field` через `<component-*>` и `static tag`.
@@ -12,13 +12,13 @@
 
 ## Client
 
-- [ ] База: `ChildComponent` и `BaseScreen` с `render()` и `destroy()`
-- [ ] Явный `static tag = 'button'` (не `constructor.name`)
-- [ ] `RenderService`: HTML-шаблон → заменить `<component-…>` на `new Component().render()`
-- [ ] `innerHTML` только для **своих** шаблонов; пользовательский текст позже — `textContent`
+- [x] База: `ChildComponent` и `BaseScreen` с `render()` и `destroy()`
+- [x] Явный `static tag = 'button'` (не `constructor.name`)
+- [x] `RenderService`: HTML-шаблон → заменить `<component-…>` на `new Component().render()`
+- [x] `innerHTML` только для **своих** шаблонов; пользовательский текст позже — `textContent`
 - [x] Стили: **BEM** + токены референса ([styles.md](../styles.md); CSS Modules не используем)
-- [ ] UI-примитивы: `Button`, `Field`
-- [ ] Один экран (например Auth-заглушка) собирается из шаблона + примитивов
+- [x] UI-примитивы: `Button`, `Field`
+- [x] Один экран (например Auth-заглушка) собирается из шаблона + примитивов
 
 **Не делать:** живой login, store, http.
 

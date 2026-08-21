@@ -13,6 +13,7 @@ class HomeScreen extends BaseScreen {
 			[
 				new Button({
 					children: 'test',
+					variant: 'green',
 					onClick: () => console.log(123)
 				})
 			]

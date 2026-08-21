@@ -1,4 +1,5 @@
 const BaseScreen = require('@/core/components/base-screen.component')
+const renderService = require('@/core/services/render.service')
 
 class NotFoundScreen extends BaseScreen {
 	constructor() {
@@ -6,7 +7,9 @@ class NotFoundScreen extends BaseScreen {
 	}
 
 	render() {
-		return '<section><h1>Not found</h1><p>Route does not exist.</p></section>'
+		return renderService.htmlToElement(
+			'<section><h1>Not found</h1><p>Route does not exist.</p></section>'
+		)
 	}
 
 	destroy() {}

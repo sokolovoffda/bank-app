@@ -10,26 +10,32 @@ class RenderService {
 	}
 
 	#replaceComponentTags(root, components) {
+		const pool = [...components]
 		const elements = Array.from(root.querySelectorAll('*'))
+
 		for (const element of elements) {
 			const tagName = element.tagName.toLowerCase()
 			if (!tagName.startsWith('component-')) continue
 
 			const tag = tagName.replace(/^component-/, '')
+			const index = pool.findIndex(component => {
+				const componentTag = component.tag ?? component.constructor.tag
+				return componentTag === tag
+			})
 
-			const Component = components.find(
-				component => component.tag ?? component.constructor.tag
-			)
-
-			if (!Component) {
+			if (index === -1) {
 				console.error(`Component "${tag}" not found`)
 				continue
 			}
 
-			const node =
-				Component instanceof ChildComponent
-					? Component.render()
-					: new Component().render()
+			const Component = pool[index]
+			const isInstance = Component instanceof ChildComponent
+
+			if (isInstance) pool.splice(index, 1)
+
+			const node = isInstance
+				? Component.render()
+				: new Component().render()
 
 			element.replaceWith(node)
 		}
