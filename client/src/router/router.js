@@ -1,5 +1,3 @@
-const Button = require('@/components/ui/button/button.component')
-const RenderService = require('@/core/services/render.service')
 const Layout = require('@/layout/layout')
 const routes = require('@/router/routes.data')
 class Router {

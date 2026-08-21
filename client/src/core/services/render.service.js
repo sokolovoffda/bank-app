@@ -39,4 +39,4 @@ class RenderService {
 	}
 }
 
-module.exports = RenderService
+module.exports = new RenderService()

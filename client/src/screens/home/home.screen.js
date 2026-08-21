@@ -8,7 +8,7 @@ class HomeScreen extends BaseScreen {
 		super({ title: 'Home' })
 	}
 	render() {
-		const element = new RenderService().htmlToElement(template, [
+		const element = RenderService.htmlToElement(template, [
 			new Button({
 				children: 'test',
 				onClick: () => console.log(123),

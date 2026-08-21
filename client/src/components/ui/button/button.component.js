@@ -13,7 +13,7 @@ class Button extends ChildComponent {
 
 	static tag = 'button'
 	render() {
-		this.element = new RenderService().htmlToElement(template)
+		this.element = RenderService.htmlToElement(template)
 		this.element.textContent = this.children
 		if (this.onClick) {
 			this.element.addEventListener('click', this.onClick)

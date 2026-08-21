@@ -8,7 +8,7 @@ class AboutScreen extends BaseScreen {
 	}
 
 	render() {
-		return new RenderService().htmlToElement(template)
+		return RenderService.htmlToElement(template)
 	}
 
 	destroy() {}
